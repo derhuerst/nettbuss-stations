@@ -4,6 +4,10 @@ const fetch = require('isomorphic-fetch')
 const cheerio = require('cheerio')
 const {parse} = require('acorn')
 const {traverse} = require('estraverse')
+const natsort = require('natsort')
+const uniqBy = require('lodash.uniqby')
+
+const {parseCountry, parseStation} = require('./parse')
 
 
 
@@ -56,7 +60,18 @@ fetch('https://m.nettbuss.se/m/sok-kop-resa', {
 	traverse(ast, {
 		enter: (node, parent) => {
 			if (!isSetterCall(node)) return
-			const {stations, countries} = setterCallData(node)
+			const data = setterCallData(node)
+
+			const countries = data.countries.map(parseCountry(js))
+
+			const sort = natsort()
+			const stations =
+				uniqBy(
+					data.stations
+					.map(parseStation(js, countries))
+					.filter((s) => s.id !== null && s.name)
+				, (s) => s.id)
+				.sort((a, b) => sort(a.id, b.id))
 
 			process.stdout.write(JSON.stringify(stations) + '\n')
 		}
