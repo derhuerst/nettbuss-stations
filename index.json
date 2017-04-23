@@ -1,1 +1,11 @@
-[]
+[
+	{
+		"id": "0",
+		"name": "dummy station",
+		"coordinates": null,
+		"city": {"id": "0", "name": "dummy city"},
+		"weight": 0,
+		"tags": [],
+		"country": {"id": "0", "name": "dummy country"}
+	}
+]
