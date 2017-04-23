@@ -17,8 +17,37 @@ npm install nettbuss-stations
 
 ## Usage
 
+The [npm package](https://npmjs.com/nettbuss-stations) contains data in the [*Friendly Public Transport Format*](https://github.com/public-transport/friendly-public-transport-format).
+
 ```js
-// todo
+const stations = require('nettbuss-stations')
+
+console.log(stations)
+```
+
+```js
+[
+	{
+		id: '1394',
+		name: 'Nils Ericson-terminalen',
+		coordinates: null,
+		city: {id: '210', name: 'Göteborg'},
+		weight: 65463,
+		tags: [],
+		country: {id: '1', name: 'Sverige'}
+	},
+	// …
+	{
+		id: '242',
+		name: 'Oslo Bussterminal',
+		coordinates: null,
+		city: {id: '46', name: 'Oslo'},
+		weight: 112120,
+		tags: [],
+		country: {id: '2', name: 'Norge'}
+	}
+	// …
+]
 ```
 
 
