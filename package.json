@@ -1,0 +1,24 @@
+{
+	"name":         "nettbuss-stations",
+	"description":  "A list of Nettbuss.se stations.",
+	"version":      "0.1.0",
+	"main":         "index.json",
+	"files":        ["index.json"],
+	"keywords":     ["nettbuss", "nettbuss.se", "public transport", "coach", "bus"],
+	"author":       "Jannis R <mail@jannisr.de>",
+	"homepage":     "https://github.com/derhuerst/nettbuss-stations",
+	"repository":   "derhuerst/nettbuss-stations",
+	"bugs":         "https://github.com/derhuerst/nettbuss-stations/issues",
+	"license":      "ISC",
+	"engines":      {"node": ">=6"},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"tape": "^4.6.3",
+		"tap-min": "^1.2.1"
+	},
+	"scripts": {
+		"test": "node test.js | tap-min",
+		"prepublishOnly": "npm test"
+	}
+}
