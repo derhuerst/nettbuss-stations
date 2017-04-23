@@ -11,14 +11,17 @@
 	"bugs":         "https://github.com/derhuerst/nettbuss-stations/issues",
 	"license":      "ISC",
 	"engines":      {"node": ">=6"},
-	"dependencies": {
-	},
 	"devDependencies": {
+		"acorn": "^5.0.3",
+		"cheerio": "^0.22.0",
+		"estraverse": "^4.2.0",
+		"isomorphic-fetch": "^2.2.1",
 		"tape": "^4.6.3",
 		"tap-min": "^1.2.1"
 	},
 	"scripts": {
+		"build": "node build.js > index.json",
 		"test": "node test.js | tap-min",
-		"prepublishOnly": "npm test"
+		"prepublishOnly": "npm run build && npm test"
 	}
 }
